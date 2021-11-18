@@ -33,13 +33,13 @@ async function run() {
     });
 
 
-    app.get("/bookingPage/:id", async (req, res) => {
-      const id = req.params.id;
-      const query = { _id: ObjectId(id) };
-      const service = await bikeDetails.findOne(query);
-      // console.log(service);
-      res.json(service);
-    });
+    // app.get("/bookingPage/:id", async (req, res) => {
+    //   const id = req.params.id;
+    //   const query = { _id: ObjectId(id) };
+    //   const service = await bikeDetails.findOne(query);
+    //   // console.log(service);
+    //   res.json(service);
+    // });
 
     app.get("/booking", async (req, res) => {
       const email = req.query.email;
