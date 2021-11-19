@@ -98,7 +98,7 @@ async function run() {
           res.json(result);
      
     });
-
+//single bike added
     app.post("/addBike", async (req, res) => {
       const addHotel = req.body;
       const result = await bikeDetails.insertOne(addHotel);
