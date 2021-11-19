@@ -98,6 +98,15 @@ async function run() {
           res.json(result);
      
     });
+
+    app.post("/addBike", async (req, res) => {
+      const addHotel = req.body;
+      const result = await bikeDetails.insertOne(addHotel);
+      res.json(result);
+    });
+
+
+
   } finally {
     // await client.close();
   }
