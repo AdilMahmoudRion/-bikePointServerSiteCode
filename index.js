@@ -33,6 +33,11 @@ async function run() {
       const result = await cursor.toArray();
       res.send(result);
     });
+    app.get("/reviews", async (req, res) => {
+      const cursor = reviewsCollection.find({}).limit(6);
+      const result = await cursor.toArray();
+      res.send(result);
+    });
     app.get("/bikes/all", async (req, res) => {
       const cursor = bikeDetails.find({});
       const result = await cursor.toArray();
@@ -78,10 +83,10 @@ async function run() {
     app.post("/users", async (req, res) => {
       const user = req.body;
       const result = await usersCollection.insertOne(user);
-      console.log(result);
       res.json(result);
     });
-    app.post("/review", async (req, res) => {
+
+    app.post("/reviews", async (req, res) => {
       const user = req.body;
       const result = await reviewsCollection.insertOne(user);
       res.json(result);
