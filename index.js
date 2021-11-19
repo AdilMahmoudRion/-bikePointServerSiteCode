@@ -28,6 +28,11 @@ async function run() {
 
 
     app.get("/bikes", async (req, res) => {
+      const cursor = bikeDetails.find({}).limit(6);
+      const result = await cursor.toArray();
+      res.send(result);
+    });
+    app.get("/bikes/all", async (req, res) => {
       const cursor = bikeDetails.find({});
       const result = await cursor.toArray();
       res.send(result);
