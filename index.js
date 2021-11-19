@@ -24,6 +24,7 @@ async function run() {
     const database = client.db("bike-collection");
     const bikeDetails = database.collection("bikes");
     const bookingCollection = database.collection("booking");
+    const reviewsCollection = database.collection("reviews");
     const usersCollection = database.collection("users");
 
 
@@ -78,6 +79,11 @@ async function run() {
       const user = req.body;
       const result = await usersCollection.insertOne(user);
       console.log(result);
+      res.json(result);
+    });
+    app.post("/review", async (req, res) => {
+      const user = req.body;
+      const result = await reviewsCollection.insertOne(user);
       res.json(result);
     });
 
