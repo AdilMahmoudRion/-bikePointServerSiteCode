@@ -26,7 +26,7 @@ async function run() {
     const bookingCollection = database.collection("booking");
     const usersCollection = database.collection("users");
 
-// heroku deploy
+
     app.get("/bikes", async (req, res) => {
       const cursor = bikeDetails.find({});
       const result = await cursor.toArray();
@@ -38,15 +38,15 @@ async function run() {
       const id = req.params.id;
       const query = { _id: ObjectId(id) };
       const service = await bikeDetails.findOne(query);
-      // console.log(service);
+     
       res.json(service);
     });
 
     app.get("/booking", async (req, res) => {
       const email = req.query.email;
-      // const date = req.query.date;
+  
       const query = { email: email };
-      // console.log(query);
+  
       const cursor = bookingCollection.find(query);
       const booking = await cursor.toArray();
       res.json(booking);
